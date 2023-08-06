@@ -1,10 +1,24 @@
-import React, { Component, useState } from "react";
+import React, { Component, useEffect, useState } from "react";
 
 
 
 function Counter(props) {
   const [count,setCount] = useState(props.count)
   const [text,setText] = useState(props.text)
+
+  useEffect(()=>{
+    console.log('componentDidMount, componentDidUpdate')
+  })
+  useEffect(()=>{
+    console.log('componentDidMount')
+  },[])
+  useEffect(()=>{
+    console.log('count')
+  },[count])
+  useEffect(()=>{
+    console.log('text')
+  },[text])
+
   return (
     <div className="container mt-3">
       <p>Button pressed {count} times.</p>
@@ -21,6 +35,11 @@ function Counter(props) {
       <input type="text" value={text} onChange={(e) => { setText(e.target.value) }}/>
     </div>
   );
+}
+
+Counter.defaultProps = 
+{
+  count:5, text:'merhaba'
 }
 
 export default Counter;

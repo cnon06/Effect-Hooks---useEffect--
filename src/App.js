@@ -1,10 +1,10 @@
 import React from 'react'
-import Notelist from './components/Notelist'
+import Counter from './components/Counter'
 
 function App() {
   return (
     <div>
-      <Notelist/>
+      <Counter/>
     </div>
   )
 }
